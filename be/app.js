@@ -7,12 +7,14 @@ const cors = require('cors')
 
 const vehicleRoutes = require('./routes/vehicleRoutes')
 const catagoryRoutes = require('./routes/catagoryRoutes')
+const CalculationRoutes = require('./routes/CalculationRoutes')
 
 
 app.use(bodyparser.json())
 app.use(cors())
 app.use('/vehicle',vehicleRoutes)
-app.use('/catagory',catagoryRoutes)
+app.use('/catagory', catagoryRoutes)
+app.use('/cal',CalculationRoutes)
 
 
 

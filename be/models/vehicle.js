@@ -10,6 +10,7 @@ const vehicle = mongoose.Schema({
             type : mongoose.Schema.Types.ObjectId,
             ref : 'catagory'
         }
-    ]
+    ],
+    solidPrice : Number
 })
 module.exports = mongoose.model('vehicle',vehicle)

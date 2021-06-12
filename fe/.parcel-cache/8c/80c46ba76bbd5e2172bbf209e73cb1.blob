@@ -1,0 +1,293 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class NewTrip extends _react.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            vehs: [],
+            cats: [],
+            vehicle: '',
+            cat: '',
+            hour: '',
+            mins: '',
+            sec: '',
+            open1: 'modal',
+            open2: '#exampleModal',
+            price: 0
+        };
+    }
+    componentDidMount() {
+        fetch('http://localhost:3000/vehicle').then((res)=>res.json()
+        ).then((data)=>{
+            this.setState({
+                vehs: data
+            });
+        });
+        fetch('http://localhost:3000/catagory').then((res)=>res.json()
+        ).then((data)=>{
+            this.setState({
+                cats: data
+            });
+        });
+    }
+    handleChange = (e)=>{
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+        console.log([
+            e.target.name
+        ], e.target.value);
+    };
+    handleSubmit = ()=>{
+        const data = {
+            vahId: this.state.vehicle,
+            catId: this.state.cat,
+            hour: this.state.hour,
+            mins: this.state.mins,
+            secs: this.state.sec
+        };
+        fetch('http://localhost:3000/cal', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then((res)=>res.json()
+        ).then((data1)=>{
+            this.setState({
+                price: data1
+            });
+            console.log(data1);
+        }).catch((err)=>{
+            console.log(err);
+        });
+    };
+    render() {
+        const price = /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "alert alert-dark",
+            role: "alert",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 60
+            },
+            __self: this
+        }, "Trip price = ", this.state.price.to(2));
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "mt-3",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 64
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("hr", {
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 65
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "alert alert-success",
+            role: "alert",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 66
+            },
+            __self: this
+        }, "New trip"), price, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "row",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 72
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "col",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 73
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("select", {
+            name: "vehicle",
+            onChange: this.handleChange,
+            class: "form-select",
+            "aria-label": "Default select example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 74
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+            selected: true,
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 75
+            },
+            __self: this
+        }, "Select a vehicle"), this.state.vehs.map((item)=>{
+            return(/*#__PURE__*/ _reactDefault.default.createElement("option", {
+                value: item._id,
+                __source: {
+                    fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                    lineNumber: 78
+                },
+                __self: this
+            }, item.name));
+        }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "col",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 83
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("select", {
+            name: "cat",
+            onChange: this.handleChange,
+            class: "form-select",
+            "aria-label": "Default select example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 84
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+            selected: true,
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 85
+            },
+            __self: this
+        }, "Select a Catagory"), this.state.cats.map((item)=>{
+            return(/*#__PURE__*/ _reactDefault.default.createElement("option", {
+                value: item._id,
+                __source: {
+                    fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                    lineNumber: 88
+                },
+                __self: this
+            }, item.name));
+        }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "row",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 93
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "col",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 94
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mt-3",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 95
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("input", {
+            name: "hour",
+            onChange: this.handleChange,
+            type: "text",
+            class: "form-control",
+            placeholder: "enter the duration ex: 1h",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 96
+            },
+            __self: this
+        }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "col",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 100
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mt-3",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 101
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("input", {
+            name: "mins",
+            onChange: this.handleChange,
+            type: "text",
+            class: "form-control",
+            placeholder: "enter the duration ex: 30m",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 102
+            },
+            __self: this
+        }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "col",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 106
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mt-3",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 107
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("input", {
+            name: "sec",
+            onChange: this.handleChange,
+            type: "text",
+            class: "form-control",
+            placeholder: "enter the duration ex: 60s",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 108
+            },
+            __self: this
+        }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "row mt-3",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 112
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "col",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 113
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            onClick: this.handleSubmit,
+            className: "btn btn-primary",
+            style: {
+                width: '100%'
+            },
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 114
+            },
+            __self: this
+        }, "Calculate")))))));
+    }
+}
+exports.default = NewTrip;
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

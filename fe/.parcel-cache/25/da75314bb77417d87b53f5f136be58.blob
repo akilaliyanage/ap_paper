@@ -1,0 +1,163 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class NewTrip extends _react.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            vehs: [],
+            cats: []
+        };
+    }
+    componentDidMount() {
+        fetch('http://localhost:3000/vehicle').then((res)=>res.json()
+        ).then((data)=>{
+            this.setState({
+                vehs: data
+            });
+        });
+        fetch('http://localhost:3000/catagory').then((res)=>res.json()
+        ).then((data)=>{
+            this.setState({
+                cats: data
+            });
+        });
+    }
+    render() {
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "mt-3",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 24
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("hr", {
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 25
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "alert alert-success",
+            role: "alert",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 26
+            },
+            __self: this
+        }, "New trip"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "row",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 30
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "col",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 31
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("select", {
+            class: "form-select",
+            "aria-label": "Default select example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 32
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+            selected: true,
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 33
+            },
+            __self: this
+        }, "Select a vehicle"), this.state.vehs.map((item)=>{
+            return(/*#__PURE__*/ _reactDefault.default.createElement("option", {
+                value: item._id,
+                __source: {
+                    fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                    lineNumber: 36
+                },
+                __self: this
+            }, item.name));
+        }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "col",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 41
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("select", {
+            class: "form-select",
+            "aria-label": "Default select example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 42
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+            selected: true,
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 43
+            },
+            __self: this
+        }, "Select a Catagory"), this.state.cats.map((item)=>{
+            return(/*#__PURE__*/ _reactDefault.default.createElement("option", {
+                value: item._id,
+                __source: {
+                    fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                    lineNumber: 46
+                },
+                __self: this
+            }, item.name));
+        }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "row",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 51
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "col",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 52
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mt-3",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 53
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("input", {
+            type: "text",
+            class: "form-control",
+            placeholder: "enter the duration ex: 1h 30m 60s",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewTrip.jsx",
+                lineNumber: 54
+            },
+            __self: this
+        })))))));
+    }
+}
+exports.default = NewTrip;
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

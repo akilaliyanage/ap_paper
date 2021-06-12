@@ -1,0 +1,81 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class NewVeh extends _react.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+        };
+    }
+    render() {
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 9
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "alert alert-danger",
+            role: "alert",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 10
+            },
+            __self: this
+        }, "New Vehicle"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+            class: "form-control bt-1",
+            type: "text",
+            placeholder: "code",
+            "aria-label": "default input example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 13
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+            class: "form-control",
+            type: "text",
+            placeholder: "model",
+            "aria-label": "default input example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 14
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+            class: "form-control",
+            type: "text",
+            placeholder: "type",
+            "aria-label": "default input example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 15
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+            class: "form-control",
+            type: "text",
+            placeholder: "name",
+            "aria-label": "default input example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 16
+            },
+            __self: this
+        })));
+    }
+}
+exports.default = NewVeh;
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

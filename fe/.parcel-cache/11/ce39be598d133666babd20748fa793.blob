@@ -1,0 +1,164 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class NewVeh extends _react.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            code: '',
+            model: '',
+            type: '',
+            name: '',
+            cat: [],
+            catagories: []
+        };
+    }
+    componentDidMount() {
+        this.fetchCat();
+    }
+    fetchCat = ()=>{
+        fetch('http://localhost:3000/catagory').then((res)=>res.json()
+        ).then((data)=>{
+            this.setState({
+                catagories: data
+            });
+        }).catch((err)=>{
+            console.log(err);
+        });
+    };
+    handleChange = (e)=>{
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+        console.log([
+            e.target.name
+        ], e.target.value);
+    };
+    handleSubmit = ()=>{
+        const data = {
+            data: {
+                code: this.state.code,
+                model: this.state.model,
+                type: this.state.type,
+                name: this.state.name
+            }
+        };
+    };
+    render() {
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 44
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "alert alert-danger",
+            role: "alert",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 45
+            },
+            __self: this
+        }, "New Vehicle"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+            onChange: this.handleChange,
+            name: "code",
+            className: "form-control mt-1",
+            type: "text",
+            placeholder: "code",
+            "aria-label": "default input example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 48
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+            onChange: this.handleChange,
+            name: "model",
+            className: "form-control  mt-1",
+            type: "text",
+            placeholder: "model",
+            "aria-label": "default input example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 49
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+            onChange: this.handleChange,
+            name: "type",
+            className: "form-control  mt-1",
+            type: "text",
+            placeholder: "type",
+            "aria-label": "default input example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 50
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+            onChange: this.handleChange,
+            name: "name",
+            className: "form-control  mt-1",
+            type: "text",
+            placeholder: "name",
+            "aria-label": "default input example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 51
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+            onChange: this.handleChange,
+            name: "cat",
+            className: "form-select mt-1",
+            "aria-label": "Default select example",
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 52
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+            selected: true,
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 53
+            },
+            __self: this
+        }, "Open this select menu"), this.state.catagories.map((item)=>{
+            return(/*#__PURE__*/ _reactDefault.default.createElement("option", {
+                value: item._id,
+                __source: {
+                    fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                    lineNumber: 56
+                },
+                __self: this
+            }, item.name));
+        })), /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            onClick: this.handleSubmit,
+            type: "button",
+            class: "btn btn-primary mt-1",
+            style: {
+                width: '100%'
+            },
+            __source: {
+                fileName: "D:\\Practicals\\paper\\ap_paper\\fe\\componnets\\NewVeh.jsx",
+                lineNumber: 60
+            },
+            __self: this
+        }, "Primary")));
+    }
+}
+exports.default = NewVeh;
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
